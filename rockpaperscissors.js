@@ -3,8 +3,6 @@ let computerScore = 0;
 
 function getComputerChoice(){
     let randomNum = Math.random() * 100;
-    console.log(randomNum);
-
     return (randomNum >= 0  && randomNum < 34) ? "rock" : (randomNum > 67 ) ? "paper" : "scissors";
 }
 
