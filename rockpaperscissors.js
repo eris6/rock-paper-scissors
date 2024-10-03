@@ -24,6 +24,9 @@ function getComputerChoice(){
 //     }
 // }
 
+
+
+
 function playRound(humanChoice, computerChoice){
 
     const result = document.querySelector(".result");
@@ -67,24 +70,24 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame(){
-    let numGames = 0;
+// function playGame(){
+//     let numGames = 0;
 
-    while (numGames < 5){
+//     while (numGames < 5){
 
-        playRound(humanSelection, computerSelection);
+//         playRound(humanSelection, computerSelection);
         
-        if (humanSelection == "invalid input!"){
-            continue;
-        }
-        else{
-            playRound(humanSelection, computerSelection);
-            numGames++;
-        }
+//         if (humanSelection == "invalid input!"){
+//             continue;
+//         }
+//         else{
+//             playRound(humanSelection, computerSelection);
+//             numGames++;
+//         }
+//     }
+// }
 
-        
-    }
-}
+
 
 
 
@@ -98,13 +101,19 @@ window.onload = function(){
 
         switch(target.id){
             case 'rock':
+                removeBorder();
                 playRound("rock", computerSelection);
+                addBorder(computerSelection);
                 break;
             case 'paper':
+                removeBorder();
                 playRound("paper", computerSelection);
+                addBorder(computerSelection);
                 break;
             case 'scissors':
+                removeBorder();
                 playRound("scissors", computerSelection);
+                addBorder(computerSelection);
                 break;
         }
 
@@ -112,5 +121,34 @@ window.onload = function(){
 
 };
 
+function addBorder(computerChoice){
+        const rock = document.getElementById("rock");
+        const paper = document.getElementById("paper");
+        const scissors = document.getElementById("scissors");
+    
+        if (computerChoice === "rock"){
+            rock.style.border = "5px solid black";
+        }
+        if (computerChoice === "paper"){
+            paper.style.border = "5px solid black";
+        }
+        if (computerChoice === "scissors"){
+            scissors.style.border = "5px solid black";
+        }
+    
+}
 
-playGame();
+function removeBorder(){
+    const rock = document.getElementById("rock");
+    const paper = document.getElementById("paper");
+    const scissors = document.getElementById("scissors");
+    rock.style.border = "5px solid white";
+    paper.style.border = "5px solid white";
+    scissors.style.border = "5px solid white";
+}
+
+
+
+
+// playGame();
+addBorder("rock");
