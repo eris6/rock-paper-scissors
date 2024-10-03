@@ -28,6 +28,7 @@ function playRound(humanChoice, computerChoice){
     
     const choiceSet = new Set(['rock', 'paper', 'scissors']);
 
+
     if (humanChoice == computerChoice){
         console.log("Tie game! There is no winner or loser.");
     }
@@ -56,31 +57,46 @@ function playRound(humanChoice, computerChoice){
 
 }
 
-function playGame(){
-    let numGames = 0;
+// function playGame(){
+//     let numGames = 0;
     
 
-    while (numGames < 5){
+//     while (numGames < 5){
         
+//         let computerSelection = getComputerChoice();
+//         let humanSelection = getHumanChoice();
+
+//         if (humanSelection == "invalid input!"){
+//             continue;
+//         }
+//         else{
+//             playRound(humanSelection, computerSelection);
+//             numGames++;
+//         }
+
+        
+//     }
+// }
+
+
+window.onload = function(){ 
+
+    const rock = document.querySelector("#rock");
+    rock.addEventListener("click", () => {
+    let computerSelection = getComputerChoice();
+    playRound("rock", computerSelection);
+    });
+
+    const paper = document.querySelector("#paper");
+    paper.addEventListener("click", ()=>{
         let computerSelection = getComputerChoice();
-        let humanSelection = getHumanChoice();
+        playRound("paper", computerSelection);
+    })
 
-        if (humanSelection == "invalid input!"){
-            continue;
-        }
-        else{
-            playRound(humanSelection, computerSelection);
-            numGames++;
-        }
+    const scissors = document.querySelector("#scissors");
+    scissors.addEventListener("click", ()=>{
+        let computerSelection = getComputerChoice();
+        playRound("scissors", computerSelection);
+    })
 
-        
-    }
-}
-
-
-
-
-
-
-
-playGame();
+};
