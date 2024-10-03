@@ -44,7 +44,7 @@ function playRound(humanChoice, computerChoice){
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
         console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
-        result.innerHTML = "You win! " + humanChoice + " beats " + computerChoice + ".";
+        result.innerHTML = "You win! " + humanChoice + " beats " + computerChoice.toLowerCase() + ".";
     }
     else{
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
@@ -52,7 +52,7 @@ function playRound(humanChoice, computerChoice){
 
         computerScore += 1;
         console.log("You lose! " + computerChoice + " beats " + humanChoice + ".");
-        result.innerHTML = "You lose! " + computerChoice + " beats " + humanChoice + ".";
+        result.innerHTML = "You lose! " + computerChoice + " beats " + humanChoice.toLowerCase()  + ".";
     }
     }
 }
