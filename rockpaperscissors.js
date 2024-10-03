@@ -49,6 +49,10 @@ window.onload = function(){
     const reload = document.querySelector(".reload");
     const humandisplay = document.querySelector(".humanscore");
     const computerdisplay = document.querySelector(".computerscore");
+    const rock = document.getElementById("rock");
+    const paper = document.getElementById("paper");
+    const scissors = document.getElementById("scissors");
+
     playerbuttons.addEventListener('click', (event)=>{
         let target = event.target;
         let computerSelection = getComputerChoice();
@@ -64,21 +68,26 @@ window.onload = function(){
     
         })
 
+        let delayInMilliseconds = 300;
+
         switch(target.id){
             case 'rock':
                 removeBorder();
                 playRound("rock", computerSelection);
-                addBorder(computerSelection);
+                rock.style.border = "5px solid #77DD77"
+                setTimeout(() => addBorder(computerSelection), delayInMilliseconds);
                 break;
             case 'paper':
                 removeBorder();
                 playRound("paper", computerSelection);
-                addBorder(computerSelection);
+                paper.style.border = "5px solid #77DD77"
+                setTimeout(() => addBorder(computerSelection), delayInMilliseconds);
                 break;
             case 'scissors':
                 removeBorder();
                 playRound("scissors", computerSelection);
-                addBorder(computerSelection);
+                scissors.style.border = "5px solid #77DD77"
+                setTimeout(() => addBorder(computerSelection), delayInMilliseconds);
                 break;
         }
 
