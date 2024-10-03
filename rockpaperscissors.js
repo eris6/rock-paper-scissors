@@ -25,17 +25,18 @@ function getHumanChoice(){
 }
 
 function playRound(humanChoice, computerChoice){
-    
-    const choiceSet = new Set(['rock', 'paper', 'scissors']);
 
+    const container = document.querySelector("body");
+    const results = document.createElement("div");
+    container.appendChild(results);
 
     if (humanChoice == computerChoice){
         console.log("Tie game! There is no winner or loser.");
-    }
-    else if(!choiceSet.has(humanChoice)){
-        console.log("Invalid input!");
-    }
+        results.textContent = "Tie game! There is no winner or loser.";
+        
 
+    }
+    
     else{
         if ((humanChoice == "paper" && computerChoice == "rock") || 
         (humanChoice == "scissors" && computerChoice == "paper") || 
@@ -45,6 +46,7 @@ function playRound(humanChoice, computerChoice){
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
         console.log("You win! " + humanChoice + " beats " + computerChoice + ".");   
+        results.textContent = "You win! " + humanChoice + " beats " + computerChoice + ".";
     }
     else{
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
@@ -52,6 +54,7 @@ function playRound(humanChoice, computerChoice){
 
         computerScore += 1;
         console.log("You lose! " + computerChoice + " beats " + humanChoice + ".")
+        results.textContent = "You lose! " + computerChoice + " beats " + humanChoice + "."
     }
     }
 
@@ -87,7 +90,6 @@ window.onload = function(){
         let computerSelection = getComputerChoice();
 
         switch(target.id){
-
             case 'rock':
                 playRound("rock", computerSelection);
                 break;
@@ -100,24 +102,5 @@ window.onload = function(){
         }
 
     })
-
-    //good functions!
-    // const rock = document.querySelector("#rock");
-    // rock.addEventListener("click", () => {
-    // let computerSelection = getComputerChoice();
-    // playRound("rock", computerSelection);
-    // });
-
-    // const paper = document.querySelector("#paper");
-    // paper.addEventListener("click", ()=>{
-    //     let computerSelection = getComputerChoice();
-    //     playRound("paper", computerSelection);
-    // })
-
-    // const scissors = document.querySelector("#scissors");
-    // scissors.addEventListener("click", ()=>{
-    //     let computerSelection = getComputerChoice();
-    //     playRound("scissors", computerSelection);
-    // })
 
 };
