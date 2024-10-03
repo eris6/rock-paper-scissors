@@ -53,6 +53,11 @@ window.onload = function(){
     const paper = document.getElementById("paper");
     const scissors = document.getElementById("scissors");
 
+    rock.style.border = "5px solid white";
+    paper.style.border = "5px solid white";
+    scissors.style.border = "5px solid white";
+
+
     playerbuttons.addEventListener('click', (event)=>{
         let target = event.target;
         let computerSelection = getComputerChoice();
