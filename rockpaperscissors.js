@@ -26,15 +26,13 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice){
 
-    const container = document.querySelector("body");
-    const results = document.createElement("div");
-    container.appendChild(results);
+    const result = document.querySelector(".result");
+    
+
 
     if (humanChoice == computerChoice){
         console.log("Tie game! There is no winner or loser.");
-        results.textContent = "Tie game! There is no winner or loser.";
-        
-
+        result.innerHTML = "Tie game! There is no winner or loser.";
     }
     
     else{
@@ -45,19 +43,18 @@ function playRound(humanChoice, computerChoice){
 
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
-        console.log("You win! " + humanChoice + " beats " + computerChoice + ".");   
-        results.textContent = "You win! " + humanChoice + " beats " + computerChoice + ".";
+        console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
+        result.innerHTML = "You win! " + humanChoice + " beats " + computerChoice + ".";
     }
     else{
         humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1);
         computerChoice = computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
 
         computerScore += 1;
-        console.log("You lose! " + computerChoice + " beats " + humanChoice + ".")
-        results.textContent = "You lose! " + computerChoice + " beats " + humanChoice + "."
+        console.log("You lose! " + computerChoice + " beats " + humanChoice + ".");
+        result.innerHTML = "You lose! " + computerChoice + " beats " + humanChoice + ".";
     }
     }
-
 }
 
 // function playGame(){
@@ -80,6 +77,8 @@ function playRound(humanChoice, computerChoice){
         
 //     }
 // }
+
+
 
 
 window.onload = function(){ 
