@@ -81,22 +81,43 @@ function playRound(humanChoice, computerChoice){
 
 window.onload = function(){ 
 
-    const rock = document.querySelector("#rock");
-    rock.addEventListener("click", () => {
-    let computerSelection = getComputerChoice();
-    playRound("rock", computerSelection);
-    });
-
-    const paper = document.querySelector("#paper");
-    paper.addEventListener("click", ()=>{
+    const playerbuttons = document.querySelector(".playerbuttons");
+    playerbuttons.addEventListener('click', (event)=>{
+        let target = event.target;
         let computerSelection = getComputerChoice();
-        playRound("paper", computerSelection);
+
+        switch(target.id){
+
+            case 'rock':
+                playRound("rock", computerSelection);
+                break;
+            case 'paper':
+                playRound("paper", computerSelection);
+                break;
+            case 'scissors':
+                playRound("scissors", computerSelection);
+                break;
+        }
+
     })
 
-    const scissors = document.querySelector("#scissors");
-    scissors.addEventListener("click", ()=>{
-        let computerSelection = getComputerChoice();
-        playRound("scissors", computerSelection);
-    })
+    //good functions!
+    // const rock = document.querySelector("#rock");
+    // rock.addEventListener("click", () => {
+    // let computerSelection = getComputerChoice();
+    // playRound("rock", computerSelection);
+    // });
+
+    // const paper = document.querySelector("#paper");
+    // paper.addEventListener("click", ()=>{
+    //     let computerSelection = getComputerChoice();
+    //     playRound("paper", computerSelection);
+    // })
+
+    // const scissors = document.querySelector("#scissors");
+    // scissors.addEventListener("click", ()=>{
+    //     let computerSelection = getComputerChoice();
+    //     playRound("scissors", computerSelection);
+    // })
 
 };
