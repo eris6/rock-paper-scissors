@@ -26,3 +26,10 @@
     justify-content: space-evenly;
     font-size: 30px;
  }
+
+ .reload{
+   padding-top: 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }

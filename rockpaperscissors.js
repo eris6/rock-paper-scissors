@@ -95,9 +95,24 @@ function playRound(humanChoice, computerChoice){
 window.onload = function(){ 
 
     const playerbuttons = document.querySelector(".playerbuttons");
+    const result = document.querySelector(".result");
+    const reload = document.querySelector(".reload");
+    const humandisplay = document.querySelector(".humanscore");
+    const computerdisplay = document.querySelector(".computerscore");
     playerbuttons.addEventListener('click', (event)=>{
         let target = event.target;
         let computerSelection = getComputerChoice();
+
+
+        reload.addEventListener('click', ()=>{
+            result.innerHTML = "Choose, choose, choose";
+            humanScore = 0;
+            computerScore = 0;
+            humandisplay.innerHTML = "You 0";
+            computerdisplay.innerHTML = "Computer 0";
+            removeBorder();
+    
+        })
 
         switch(target.id){
             case 'rock':
@@ -119,6 +134,8 @@ window.onload = function(){
 
     })
 
+    
+
 };
 
 function addBorder(computerChoice){
@@ -134,8 +151,7 @@ function addBorder(computerChoice){
         }
         if (computerChoice === "scissors"){
             scissors.style.border = "5px solid black";
-        }
-    
+        }   
 }
 
 function removeBorder(){
@@ -149,6 +165,3 @@ function removeBorder(){
 
 
 
-
-// playGame();
-addBorder("rock");
